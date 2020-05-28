@@ -4,29 +4,17 @@ steps:
   args: ['clone', 'https://github.com/swathithangaraj/newvk8s.git']
 #Build the image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build','-t', 'gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}','.']
+  args: ['build','-t', 'gcr.io/learning-261705/hello-world:v1.0','.']
 #Push the image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push','gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}']
+  args: ['push','gcr.io/learning-261705/hello-world:v1.0']
 #update the container image using kubectl set
 - name: 'gcr.io/cloud-builder/kubectl'
   args:
           - 'set'
           - 'image'
-          - 'deployment/${_DEPLOYMENTNAME}'
-          - '${_DEPLOYMENTNAME}=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
+          - 'deployment/hello-world'
+          - 'hello-world=gcr.io/learning-261705/ hello-world:v1.0'
   env:
-          - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
-          - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
-  substitution:
-          #Gcp specific configuration.
-         - _PROJECT: Learning
-         - _ZONE: us-central1-c  
-         - _GKE_CLUSTER: cluster-1
-          
-          #Repository specific configuration.
-         - _DEPLOYMENTNAME: hello-world
-         - _CONTAINERNAME: hello-world
-         - _REPO_NAME: newck8s
-          # version
-         - _VERSION: v1.0
+          - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+          - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
