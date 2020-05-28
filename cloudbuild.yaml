@@ -31,5 +31,4 @@ steps:
           # version
           _VERSION: v1.0
 
-  options:
-          substitution_option: 'ALLOW_LOOSE'     
+      
