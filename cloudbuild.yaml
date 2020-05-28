@@ -20,13 +20,13 @@ steps:
           - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
   substitution:
           #Gcp specific configuration.
-          _PROJECT: Learning
-          _ZONE: us-central1-c  
-          _GKE_CLUSTER: cluster-1
+         - _PROJECT: Learning
+         - _ZONE: us-central1-c  
+         - _GKE_CLUSTER: cluster-1
           
           #Repository specific configuration.
-          _DEPLOYMENTNAME: hello-world
-          _CONTAINERNAME: hello-world
-          _REPO_NAME: newck8s
+         - _DEPLOYMENTNAME: hello-world
+         - _CONTAINERNAME: hello-world
+         - _REPO_NAME: newck8s
           # version
-          _VERSION: v1.0
+         - _VERSION: v1.0
