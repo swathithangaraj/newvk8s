@@ -13,7 +13,8 @@ steps:
   args: [
            'set',
            'image',
-           'deployment/hello-world',
+           'deployment',
+           'hello-world',
            'hello-world=gcr.io/learning-261705/hello-world:v1.0'
         ]
   env:
