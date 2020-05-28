@@ -10,7 +10,7 @@ steps:
   args: ['push','gcr.io/learning-261705/hello-world:v1.0']
 #update the container image using kubectl set
 - name: 'gcr.io/cloud-builder/kubectl'
-  args:[
+  args: [
            'set',
            'image',
            'deployment/hello-world',
