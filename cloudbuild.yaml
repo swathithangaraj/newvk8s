@@ -1,0 +1,4 @@
+steps:
+#First clone from git repository
+        - name: 'gcr.io/cloud-builders/git'
+          args: ['clone',         
