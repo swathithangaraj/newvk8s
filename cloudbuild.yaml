@@ -30,5 +30,3 @@ steps:
           _REPO_NAME: newck8s
           # version
           _VERSION: v1.0
-
-      
