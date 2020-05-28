@@ -10,11 +10,12 @@ steps:
   args: ['push','gcr.io/learning-261705/hello-world:v1.0']
 #update the container image using kubectl set
 - name: 'gcr.io/cloud-builder/kubectl'
-  args:
-          - 'set'
-          - 'image'
-          - 'deployment/hello-world'
-          - 'hello-world=gcr.io/learning-261705/ hello-world:v1.0'
+  args:[
+           'set',
+           'image',
+           'deployment/hello-world',
+           'hello-world=gcr.io/learning-261705/ hello-world:v1.0'
+        ]
   env:
           - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
           - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
